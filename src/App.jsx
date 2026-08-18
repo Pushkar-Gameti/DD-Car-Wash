@@ -6,11 +6,14 @@ import WhyChooseUs from "./components/WhyChooseUs";
 import Location from "./components/Location";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import { Analytics } from "@vercel/analytics/next";
 
 function App() {
   return (
     <>
       <Navbar />
+      <Analytics />
+
       <main>
         <Hero />
         <Services />
