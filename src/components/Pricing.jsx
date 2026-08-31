@@ -1,8 +1,8 @@
 import { CarFront, Bike, Sparkles } from "lucide-react";
 
 const prices = [
-  ["01", "Exterior Car Wash", "All car types", "₹150"],
-  ["02", "Full Car Wash", "Except polish", "₹300–₹350"],
+  ["01", "Exterior Car Wash", "All car types", "₹150-200"],
+  ["02", "Full Car Wash", "Except polish", "₹300–₹400"],
   ["03", "Full Wash + Polish", "Wash with polish", "₹400–₹450"],
   ["04", "Bike Wash", "Basic bike wash", "₹60"],
   ["05", "Bike Wash + Polish", "Wash + polish", "₹80"]
