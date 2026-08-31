@@ -14,17 +14,21 @@ export default function Location({ t }) {
       <div className="container location-grid">
 
         {/* Map Placeholder */}
-        <div className="map-placeholder">
-
+        <a
+          href="https://maps.app.goo.gl/ShD94PQsg3Mpk3bz6"
+          target="_blank"
+          rel="noreferrer"
+          className="map-placeholder location-map-card"
+          aria-label="Open DD Car Wash on Google Maps"
+        >
           <MapPin size={42} />
 
           <span>DD CAR WASH</span>
 
-          <small>
-            Swami Nagar • Udaipur
-          </small>
+          <small>Swami Nagar • Udaipur</small>
 
-        </div>
+          <strong>Open in Google Maps →</strong>
+        </a>
 
         {/* Location Content */}
         <div className="location-content">

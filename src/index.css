@@ -876,3 +876,36 @@ footer { background: #050d17; color: #fff; padding: 25px 0; }
     display: none;
   }
 }
+
+.location-map-card {
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.location-map-card strong {
+  margin-top: 16px;
+  font-size: 12px;
+  color: var(--accent);
+  opacity: 0;
+  transform: translateY(5px);
+  transition: 0.25s ease;
+}
+
+.location-map-card:hover {
+  transform: translateY(-4px);
+}
+
+.location-map-card:hover strong {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 760px) {
+  .location-map-card strong {
+    opacity: 1;
+    transform: none;
+  }
+}
