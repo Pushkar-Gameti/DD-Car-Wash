@@ -14,13 +14,13 @@ const services = [
   {
     icon: CarFront,
     title: "Exterior Car Wash",
-    price: "₹150",
+    price: "₹150-200",
     text: "Exterior wash for all car types."
   },
   {
     icon: Droplets,
     title: "Full Car Wash",
-    price: "₹300–₹350",
+    price: "₹300–₹400",
     text: "Complete wash, excluding polish."
   },
   {
