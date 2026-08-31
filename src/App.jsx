@@ -6,6 +6,7 @@ import WhyChooseUs from "./components/WhyChooseUs";
 import Location from "./components/Location";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import Reviews from "./components/Reviews";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Services />
         <Pricing />
         <WhyChooseUs />
+        <Reviews />
         <Location />
         <Contact />
       </main>
