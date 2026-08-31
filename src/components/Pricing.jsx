@@ -1,52 +1,91 @@
 import { CarFront, Bike, Sparkles } from "lucide-react";
 
-const prices = [
-  ["01", "Exterior Car Wash", "All car types", "₹150-200"],
-  ["02", "Full Car Wash", "Except polish", "₹300–₹400"],
-  ["03", "Full Wash + Polish", "Wash with polish", "₹400–₹450"],
-  ["04", "Bike Wash", "Basic bike wash", "₹60"],
-  ["05", "Bike Wash + Polish", "Wash + polish", "₹80"]
-];
+export default function Pricing({ t }) {
+  const prices = [
+    ["01", t.pricingItems[0][0], t.pricingItems[0][1], t.pricingItems[0][2]],
+    ["02", t.pricingItems[1][0], t.pricingItems[1][1], t.pricingItems[1][2]],
+    ["03", t.pricingItems[2][0], t.pricingItems[2][1], t.pricingItems[2][2]],
+    ["04", t.pricingItems[3][0], t.pricingItems[3][1], t.pricingItems[3][2]],
+    ["05", t.pricingItems[4][0], t.pricingItems[4][1], t.pricingItems[4][2]],
+  ];
 
-export default function Pricing() {
   return (
     <section id="pricing" className="pricing-section">
       <div className="container pricing-grid">
+
         <div className="pricing-copy">
-          <div className="eyebrow"><span /> Straightforward Pricing</div>
+
+          <div className="eyebrow">
+            <span />
+            {t.eyebrow}
+          </div>
+
           <h2>
-            Clean Car.
+            {t.title1}
             <br />
-            <em>Fair Price.</em>
+            <em>{t.title2}</em>
           </h2>
+
           <p>
-            No complicated packages. Pick the service that fits
-            your vehicle and budget.
+            {t.description}
           </p>
 
           <div className="vehicle-types">
-            <span><CarFront size={14} /> Hatchback</span>
-            <span><CarFront size={14} /> Sedan</span>
-            <span><CarFront size={14} /> SUV</span>
-            <span><Sparkles size={14} /> Luxury</span>
-            <span><Bike size={14} /> Bike</span>
+
+            <span>
+              <CarFront size={14} />
+              {t.vehicles[0]}
+            </span>
+
+            <span>
+              <CarFront size={14} />
+              {t.vehicles[1]}
+            </span>
+
+            <span>
+              <CarFront size={14} />
+              {t.vehicles[2]}
+            </span>
+
+            <span>
+              <Sparkles size={14} />
+              {t.vehicles[3]}
+            </span>
+
+            <span>
+              <Bike size={14} />
+              {t.vehicles[4]}
+            </span>
+
           </div>
         </div>
 
         <div className="price-list">
+
           {prices.map(([number, title, detail, price]) => (
-            <div className="price-row" key={title}>
-              <span className="number">{number}</span>
+            <div
+              className="price-row"
+              key={number}
+            >
+
+              <span className="number">
+                {number}
+              </span>
+
               <div>
                 <b>{title}</b>
                 <small>{detail}</small>
               </div>
+
               <strong>{price}</strong>
+
             </div>
           ))}
+
           <p className="price-note">
-            * Final car price may vary depending on vehicle size and condition.
+            {t.note}
           </p>
+
         </div>
       </div>
     </section>

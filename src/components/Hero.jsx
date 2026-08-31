@@ -1,9 +1,15 @@
-import { Phone, MessageCircle, MapPin, Clock, Sparkles } from "lucide-react";
+import {
+  Phone,
+  MessageCircle,
+  MapPin,
+  Clock,
+  Sparkles,
+} from "lucide-react";
 
 const PHONE = "8890415892";
 const WHATSAPP = `https://wa.me/91${PHONE}`;
 
-export default function Hero() {
+export default function Hero({ t }) {
   return (
     <section id="home" className="hero">
       <div className="hero-glow glow-one" />
@@ -11,39 +17,56 @@ export default function Hero() {
 
       <div className="container hero-grid">
         <div className="hero-content">
+
           <div className="eyebrow">
-            <span /> Professional Car & Bike Care
+            <span />
+            {t.eyebrow}
           </div>
 
           <h1>
-            Give Your Vehicle
+            {t.title1}
             <br />
-            <em>The Shine It Deserves.</em>
+            <em>{t.title2}</em>
           </h1>
 
           <p>
-            Reliable car and bike washing in Swami Nagar, Udaipur —
-            with simple pricing and careful cleaning.
+            {t.description}
           </p>
 
           <div className="hero-actions">
+
             <a
               className="btn primary"
               href={WHATSAPP}
               target="_blank"
               rel="noreferrer"
             >
-              <MessageCircle size={19} /> Book on WhatsApp
+              <MessageCircle size={19} />
+              {t.whatsapp}
             </a>
 
-            <a className="btn secondary" href={`tel:${PHONE}`}>
-              <Phone size={18} /> {PHONE}
+            <a
+              className="btn secondary"
+              href={`tel:${PHONE}`}
+            >
+              <Phone size={18} />
+              {PHONE}
             </a>
+
           </div>
 
           <div className="hero-info">
-            <span><Clock size={17} /> 9 AM – 6 PM</span>
-            <span><MapPin size={17} /> Swami Nagar, Udaipur</span>
+
+            <span>
+              <Clock size={17} />
+              {t.open}
+            </span>
+
+            <span>
+              <MapPin size={17} />
+              {t.location}
+            </span>
+
           </div>
         </div>
 
@@ -52,12 +75,14 @@ export default function Hero() {
           <div className="shine-ring ring-b" />
 
           <div className="car-card">
+
             <div className="car-card-top">
               <strong>DD</strong>
               <span>CAR CARE</span>
             </div>
 
             <div className="car-illustration">
+
               <div className="car-body">
                 <div className="window window-a" />
                 <div className="window window-b" />
@@ -68,6 +93,7 @@ export default function Hero() {
 
               <Sparkles className="sparkle sparkle-a" />
               <Sparkles className="sparkle sparkle-b" />
+
             </div>
 
             <div className="car-card-bottom">
@@ -75,6 +101,7 @@ export default function Hero() {
               <strong>SHINE</strong>
               <span>REPEAT</span>
             </div>
+
           </div>
         </div>
       </div>

@@ -1,125 +1,84 @@
-import { useEffect, useState } from "react";
-import { ExternalLink, Star, MessageCircle } from "lucide-react";
+import {
+  ExternalLink,
+  Star,
+  MessageCircle,
+} from "lucide-react";
 
-export default function Reviews() {
-  const [data, setData] = useState(null);
-  const [error, setError] = useState("");
+const GOOGLE_MAPS_REVIEWS_URL =
+  "https://www.google.com/maps/place/DD+Car+Wash/@24.6140247,73.7099974,17z/data=!4m8!3m7!1s0x3967e5ba132fd389:0xe20d1651c4cadb86!8m2!3d24.6140247!4d73.7099974!9m1!1b1!16s%2Fg%2F11yxc345yw?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D";
 
-  useEffect(() => {
-    fetch("/api/reviews")
-      .then(async (res) => {
-        const json = await res.json();
-        if (!res.ok) throw new Error(json.error || "Unable to load reviews");
-        return json;
-      })
-      .then(setData)
-      .catch((err) => setError(err.message));
-  }, []);
-
-  const reviews = data?.reviews || [];
-
+export default function Reviews({ t }) {
   return (
     <section id="reviews" className="reviews-section">
-      <div className="container">
+      <div className="container reviews-container">
+
         <div className="reviews-heading">
-          <div>
-            <div className="eyebrow dark"><span /> Google Reviews</div>
-            <h2>What Our Customers Say</h2>
-            <p>Real reviews from customers of DD Car Wash.</p>
+
+          <div className="eyebrow dark">
+            <span />
+            {t.eyebrow}
           </div>
 
-          {data?.rating && (
-            <div className="rating-box">
-              <strong>{Number(data.rating).toFixed(1)}</strong>
-              <div>
-                <div className="stars">
-                  {[1,2,3,4,5].map((n) => <Star key={n} size={17} fill="currentColor" />)}
-                </div>
-                <small>{data.userRatingCount || 0} Google reviews</small>
-              </div>
-            </div>
-          )}
+          <h2>
+            {t.title}
+          </h2>
+
+          <p>
+            {t.description}
+          </p>
+
         </div>
 
-        {error && (
-          <div className="reviews-error">
-            Reviews are temporarily unavailable. Please check Google Maps.
+        <div className="reviews-box">
+
+          <div className="google-icon">
+            G
           </div>
-        )}
 
-        {!data && !error && (
-          <div className="reviews-loading">Loading Google reviews…</div>
-        )}
-
-        {reviews.length > 0 && (
-          <div className="reviews-grid">
-            {reviews.map((review) => (
-              <article className="review-card" key={review.name || review.googleMapsUri}>
-                <div className="review-top">
-                  <div className="review-author">
-                    {review.authorAttribution?.photoUri ? (
-                      <img
-                        src={review.authorAttribution.photoUri}
-                        alt=""
-                        referrerPolicy="no-referrer"
-                      />
-                    ) : (
-                      <div className="review-avatar">
-                        {(review.authorAttribution?.displayName || "G").charAt(0)}
-                      </div>
-                    )}
-                    <div>
-                      <b>{review.authorAttribution?.displayName || "Google user"}</b>
-                      <small>{review.relativePublishTimeDescription || ""}</small>
-                    </div>
-                  </div>
-
-                  <div className="review-stars">
-                    {[1,2,3,4,5].map((n) => (
-                      <Star
-                        key={n}
-                        size={15}
-                        fill={n <= Math.round(review.rating) ? "currentColor" : "none"}
-                      />
-                    ))}
-                  </div>
-                </div>
-
-                <p>{review.text?.text || review.originalText?.text || "No review text available."}</p>
-
-                {review.googleMapsUri && (
-                  <a
-                    href={review.googleMapsUri}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="review-link"
-                  >
-                    View on Google Maps <ExternalLink size={14} />
-                  </a>
-                )}
-              </article>
+          <div className="reviews-stars">
+            {[1, 2, 3, 4, 5].map((star) => (
+              <Star
+                key={star}
+                size={24}
+                fill="currentColor"
+              />
             ))}
           </div>
-        )}
 
-        {data?.googleMapsLinks?.reviewsUri && (
-          <div className="reviews-actions">
-            <a className="btn secondary-light" href={data.googleMapsLinks.reviewsUri} target="_blank" rel="noreferrer">
-              <ExternalLink size={17} /> Read all Google reviews
+          <h3>
+            {t.heading}
+          </h3>
+
+          <p>
+            {t.text}
+          </p>
+
+          <div className="reviews-buttons">
+
+            <a
+              href={GOOGLE_MAPS_REVIEWS_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="btn primary"
+            >
+              <ExternalLink size={18} />
+              {t.read}
             </a>
 
-            {data.googleMapsLinks.writeAReviewUri && (
-              <a className="btn review-write" href={data.googleMapsLinks.writeAReviewUri} target="_blank" rel="noreferrer">
-                <MessageCircle size={17} /> Write a review
-              </a>
-            )}
-          </div>
-        )}
+            <a
+              href={GOOGLE_MAPS_REVIEWS_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="btn review-outline"
+            >
+              <MessageCircle size={18} />
+              {t.write}
+            </a>
 
-        <div className="google-attribution">
-          <span>Reviews powered by</span>
-          <strong>Google Maps</strong>
+          </div>
+
         </div>
+
       </div>
     </section>
   );
