@@ -1,7 +1,7 @@
 import { Phone, Menu, X } from "lucide-react";
 import { useState } from "react";
 
-const PHONE = "9983898084";
+const PHONE = "8890415892";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
