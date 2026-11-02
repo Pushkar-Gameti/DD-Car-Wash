@@ -2,7 +2,7 @@ import { Phone, Menu, X } from "lucide-react";
 import { useState } from "react";
 import LanguageToggle from "./LanguageToggle";
 
-const PHONE = "8890415892";
+const PHONE = "9983628084";
 
 export default function Navbar({
   t,

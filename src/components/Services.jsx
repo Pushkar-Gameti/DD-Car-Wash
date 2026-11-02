@@ -7,7 +7,7 @@ import {
   Clock,
 } from "lucide-react";
 
-const PHONE = "8890415892";
+const PHONE = "9983628084";
 const WHATSAPP = `https://wa.me/91${PHONE}`;
 
 const icons = [
